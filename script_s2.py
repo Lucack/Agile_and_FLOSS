@@ -3,11 +3,11 @@ import numpy as np
 import re
 
 acm = pd.read_csv("Resultado S1\current_SLR - ACM Modificado.csv")
-iee = pd.read_csv("Resultado S1\current_SLR - IEEE Modificado.csv")
+ieee = pd.read_csv("Resultado S1\current_SLR - IEEE Modificado.csv")
 scopus = pd.read_csv("Resultado S1\current_SLR - Scopus Modificado.csv")
 springer = pd.read_csv("Resultado S1\current_SLR - Springer Modificado.csv")
 
-atual = acm
+atual = ieee
 
 
 count = 0
@@ -27,8 +27,9 @@ for art_scopus in scopus.iloc[1:, 0]:
             atual.iloc[l[0],c[0]+2] = "Scopus"  # Mudança
             # print(springer.iloc[l[0],c[0]+1])
             print("SCOPUS: ", art_scopus)
-            print("Reduz: ", titulo_menor)
-            print("Novo: ", art_atual)
+            print("Reduzi: ", titulo_menor)
+            print("Atual : ", art_atual)
+            print()
             m = m+1
 
 for art_atual in atual.iloc[1:, 2]:
