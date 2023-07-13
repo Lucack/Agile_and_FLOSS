@@ -7,31 +7,35 @@ iee = pd.read_csv("Resultado S1\current_SLR - IEEE Modificado.csv")
 scopus = pd.read_csv("Resultado S1\current_SLR - Scopus Modificado.csv")
 springer = pd.read_csv("Resultado S1\current_SLR - Springer Modificado.csv")
 
+atual = acm
+
 
 count = 0
 m=0
 
 for art_scopus in scopus.iloc[1:, 0]:
-    for art_springer in springer.iloc[1:, 0]:
+    for art_atual in atual.iloc[1:, 0]:
 
-        tam = len(art_springer)
-        i = int(0.2 * tam)
+        tam = len(art_atual)
+        i = int(0.25 * tam)
         f = int(0.8 * tam)
-        titulo_menor = art_springer[i:f]
+        titulo_menor = art_atual[i:f]
 
-        if (art_scopus == art_springer) or (titulo_menor in art_scopus):
-            l,c = np.where(springer.values == art_springer)
+        if (art_scopus == art_atual) or (titulo_menor in art_scopus):
+            l,c = np.where(atual.values == art_atual)
             # print("liha",l[0],"  coluna",c[0])
-            springer.iloc[l[0],c[0]+2] = "Scopus"  # Mudança
+            atual.iloc[l[0],c[0]+2] = "Scopus"  # Mudança
             # print(springer.iloc[l[0],c[0]+1])
-            # print("Novo: ", art_springer)
+            print("SCOPUS: ", art_scopus)
+            print("Reduz: ", titulo_menor)
+            print("Novo: ", art_atual)
             m = m+1
 
-for art_springer in springer.iloc[1:, 2]:
-    if art_springer == "Scopus":
+for art_atual in atual.iloc[1:, 2]:
+    if art_atual == "Scopus":
         count = count+1
     
-springer.to_csv("Resultado S2/current_SLR - Springer S2.csv", index=False)
+atual.to_csv("Resultado S2/current_SLR - ACM S2.csv", index=False)
 
 print("Total de alterações:",m)
 print("Total de artigos repetidos:",count)
