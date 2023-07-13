@@ -7,7 +7,7 @@ ieee = pd.read_csv("Resultado S1\current_SLR - IEEE Modificado.csv")
 scopus = pd.read_csv("Resultado S1\current_SLR - Scopus Modificado.csv")
 springer = pd.read_csv("Resultado S1\current_SLR - Springer Modificado.csv")
 
-atual = ieee
+atual = acm
 
 
 count = 0
