@@ -18,7 +18,7 @@ for art_springer in springer.iloc[1:, 0]:
 
         tam = len(art_atual)
         i = int(0.25 * tam)
-        f = int(0.8 * tam)
+        f = int(0.75 * tam)
         titulo_menor = art_atual[i:f]
 
         if (art_springer == art_atual) or (titulo_menor in art_springer):
