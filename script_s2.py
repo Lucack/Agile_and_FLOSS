@@ -7,7 +7,7 @@ ieee = pd.read_csv("Resultado S1\current_SLR - IEEE Modificado.csv")
 scopus = pd.read_csv("Resultado S1\current_SLR - Scopus Modificado.csv")
 springer = pd.read_csv("Resultado S1\current_SLR - Springer Modificado.csv")
 
-atual = acm
+atual = ieee
 
 
 count = 0
@@ -36,7 +36,7 @@ for art_atual in atual.iloc[1:, 2]:
     if art_atual == "Scopus":
         count = count+1
     
-atual.to_csv("Resultado S2/current_SLR - ACM S2.csv", index=False)
+atual.to_csv("Resultado S2/current_SLR - IEEE S2.csv", index=False)
 
 print("Total de alterações:",m)
 print("Total de artigos repetidos:",count)
